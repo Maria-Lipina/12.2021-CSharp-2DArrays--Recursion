@@ -93,8 +93,29 @@ int [,] nl = EvenIndQuadrat(ln);
 WriteLine(Print2DArray(ln));
 
 
-// WriteLine("53. В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет");
-int [,] ab = Create2DArray(6, 10);
+WriteLine("53. В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет");
+int [,] ab = Create2DArray(6, 10); //keep it simple, stupid
 Fill2DArray(ab, 0, 10);
 WriteLine(Print2DArray(ab));
+
+string FindIndexes(int N, int[,] array)
+{
+    string found = $"Индексы {N} в массиве: ";
+    int startLen = found.Length;
+    string notfound = "-1";
+
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        if (array[i,j] == N) found = found + $"{i}, {j}; ";
+    }   
+}
+if (found.Length > startLen) return found;
+else return notfound;
+}
+
+WriteLine(
+    FindIndexes(
+        ToInt32(ReadLine()), ab)); //или это было в антипаттернах?
 
