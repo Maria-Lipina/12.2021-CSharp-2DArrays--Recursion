@@ -20,46 +20,39 @@ Console.WriteLine(SumNAProg(1_000_000_000));
 sw.Stop();
 System.Console.WriteLine(sw.ElapsedMilliseconds);
 */
-
+WriteLine();
 WriteLine("66. Показать натуральные числа от 1 до N, N задано");
 
 string From1toN (int n)
 {
-string output = String.Empty;
-for (int i = 0; i <= n; i++)
-{
-   output = output + i + " ";
-}
-return output;
+if (n != 0)
+return From1toN(n-1) + " " + n;
+else return string.Empty;
 }
 
 WriteLine(From1toN(10));
 
-string From1toNRec (int n)
+WriteLine();
+WriteLine("67. Показать натуральные числа от N до 1, N задано");
+
+string FromNto1 (int n)
 {
 if (n != 0)
-return n + " " + From1toNRec(n-1);
+return n + " " + FromNto1(n-1);
 else return string.Empty;
 }
 
-WriteLine(From1toNRec(10));
+WriteLine(FromNto1(10));
 
-// double Fibonacci (int n)
-// {
-//     if(n == 1 || n == 0) return 1;
-//     else return Fibonacci(n-1) + Fibonacci(n-2);
-// }
+WriteLine();
+WriteLine("68. Показать натуральные числа от M до N, N и M заданы");
 
-// for (int i = 0; i < 40; i++)
-// {
-//     Console.WriteLine(Fibonacci(i));
-// }
-
-string FromNto1Rec (int n)
+string FromMtoN (int m, int n)
 {
-if (n != 0)
-return n + " " + FromNto1Rec(n-1);
-else return string.Empty;
+if (n > m) return m + " " + FromMtoN(m + 1, n);
+if (n < m) return m + " " + FromMtoN(m - 1, n);
+return n.ToString();
 }
 
-WriteLine(FromNto1Rec(10));
+WriteLine(FromMtoN(10, 30));
+WriteLine(FromMtoN(30, 10));
