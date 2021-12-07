@@ -20,6 +20,12 @@ Console.WriteLine(SumNAProg(1_000_000_000));
 sw.Stop();
 System.Console.WriteLine(sw.ElapsedMilliseconds);
 */
+string PrintMyArray(int[] collect)
+{
+    string outputString = String.Empty;
+    for (int pos = 0; pos < collect.Length; pos++) outputString += $"{collect[pos]} ";
+    return outputString;
+}
 
 int[,] Create2DArray(int rows, int columns)
 {
@@ -134,3 +140,39 @@ for (int i = 0; i < cd.GetLength(1); i++)
 sum = sum + cd [i, i];   
 }
 WriteLine(sum);
+
+WriteLine();
+WriteLine("55. Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.");
+
+int [] ColumnAverage (int [,] arr)
+{
+int [] result = new int [arr.GetLength(1)];
+for (int i = 0; i < arr.GetLength(0); i++)
+{
+for (int j = 0; j < arr.GetLength(1); j++)
+{
+    result [j] = (result [j] + arr [i,j]);
+}
+}
+for (int i = 0; i < result.Length; i++) result[i] = result[i] / arr.GetLength(0);
+
+return result;
+}
+
+string CutOff (int [,] arr)
+{
+string line = string.Empty;
+for (int i = 0; i < arr.GetLength(1); i++)
+{
+    line += $"-- | ";
+}
+return line;
+}
+
+int [,] ef = Create2DArray(7, 12);
+Fill2DArray(ef, 10, 100);
+WriteLine(Print2DArray(ef));
+WriteLine(CutOff(ef));
+WriteLine(
+    PrintMyArray(
+        ColumnAverage(ef)));
