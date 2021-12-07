@@ -51,7 +51,7 @@ string Print2DArray(int [,] collection)
     }
     return outputString;
 }
-
+WriteLine();
 WriteLine("51. Задать двумерный массив следующим правилом: Aₘₙ = m+n");
 
 
@@ -69,6 +69,7 @@ int[,] mn = Create2DArray(6, 10);
 FillIndexSums(mn);
 WriteLine(Print2DArray(mn));
 
+WriteLine();
 WriteLine("52. В двумерном массиве заменить элементы, у которых оба индекса чётные на их квадраты");
 
 int [,] EvenIndQuadrat (int [,] array)
@@ -92,7 +93,7 @@ WriteLine("Измененный массив");
 int [,] nl = EvenIndQuadrat(ln);
 WriteLine(Print2DArray(ln));
 
-
+WriteLine();
 WriteLine("53. В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет");
 int [,] ab = Create2DArray(6, 10); //keep it simple, stupid
 Fill2DArray(ab, 0, 10);
@@ -119,3 +120,6 @@ WriteLine(
     FindIndexes(
         ToInt32(ReadLine()), ab)); //или это было в антипаттернах?
 
+
+WriteLine();
+WriteLine("54. В матрице чисел найти сумму элементов главной диагонали");
