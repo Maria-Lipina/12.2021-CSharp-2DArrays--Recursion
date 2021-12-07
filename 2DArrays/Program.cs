@@ -123,3 +123,14 @@ WriteLine(
 
 WriteLine();
 WriteLine("54. В матрице чисел найти сумму элементов главной диагонали");
+
+int [,] cd = Create2DArray (20, 20);
+Fill2DArray(cd, 10, 100);
+WriteLine(Print2DArray(cd));
+
+int sum = 0;
+for (int i = 0; i < cd.GetLength(1); i++)
+{
+sum = sum + cd [i, i];   
+}
+WriteLine(sum);
