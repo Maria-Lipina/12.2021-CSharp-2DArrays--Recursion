@@ -56,3 +56,23 @@ return n.ToString();
 
 WriteLine(FromMtoN(10, 30));
 WriteLine(FromMtoN(30, 10));
+
+
+WriteLine();
+WriteLine("69. Найти сумму элементов от M до N, N и M заданы");
+
+int SumFromMtoN(int m, int n)
+{
+    if (n > m-1)
+    {     
+       return m + SumFromMtoN(m + 1, n);
+    }
+    if (n < m-1) //TO DO: Как правильно задать условие, чтобы складывались ВСЕ числа?
+    {
+        return m + SumFromMtoN(m - 1, n);
+    }
+    return 0;
+}
+
+WriteLine(SumFromMtoN(10, 30));
+WriteLine(SumFromMtoN(30, 10));
