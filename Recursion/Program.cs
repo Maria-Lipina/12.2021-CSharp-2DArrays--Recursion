@@ -63,16 +63,16 @@ WriteLine("69. Найти сумму элементов от M до N, N и M з
 
 int SumFromMtoN(int m, int n)
 {
-    if (n > m-1)
+    if (n < m)
     {     
-       return m + SumFromMtoN(m + 1, n);
+       return m + SumFromMtoN(m - 1, n);
     }
-    if (n < m-1) //TO DO: Как правильно задать условие, чтобы складывались ВСЕ числа?
+    if (m < n)
     {
-        return m + SumFromMtoN(m - 1, n);
+        return n + SumFromMtoN(m, n-1); 
     }
-    return 0;
+    return n;
 }
 
-WriteLine(SumFromMtoN(10, 30));
+WriteLine(SumFromMtoN(10, 30)); 
 WriteLine(SumFromMtoN(30, 10));
