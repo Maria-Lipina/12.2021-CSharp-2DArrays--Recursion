@@ -76,3 +76,16 @@ int SumFromMtoN(int m, int n)
 
 WriteLine(SumFromMtoN(10, 30)); 
 WriteLine(SumFromMtoN(30, 10));
+
+WriteLine();
+WriteLine("70. Найти сумму цифр числа");
+
+int SumDig (int n)
+{
+    int dig = n % 10;
+    n = n / 10;
+    if (n != 0) return dig + SumDig(n);
+    else return 1;
+}
+
+WriteLine(SumDig(123456789));
