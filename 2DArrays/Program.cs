@@ -221,7 +221,7 @@ for (int i = 0; i < array.GetLength(0); i++)
 {
     for (int j = 1; j < array.GetLength(1); j++)
     {
-        if (array [i, j-1] < array [i,j]) SortinRow(array);
+        if (array [i, j-1] < array [i,j]) SortinRow(array); //TODO: как можно решить эту задачу без рекурсии? И не запутаться в индексах?
     }
 }
 }
