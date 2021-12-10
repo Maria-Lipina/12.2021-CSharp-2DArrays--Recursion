@@ -198,3 +198,40 @@ Fill2DArray(fg, 10, 100);
 WriteLine(Print2DArray(fg));
 Change1stLastRows(fg);
 WriteLine(Print2DArray(fg));
+
+
+WriteLine();
+WriteLine("57. Написать программу, упорядочивания по убыванию элементы каждой строки двумерной массива.");
+
+void SortinRow (int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 1; j < array.GetLength(1); j++)
+        {
+            int temporary = array [i,j-1];
+            if (array[i,j] > temporary) 
+            {
+                array [i, j-1] = array[i,j]; 
+                array [i, j] = temporary;
+            }
+        }
+    }
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 1; j < array.GetLength(1); j++)
+    {
+        if (array [i, j-1] < array [i,j]) SortinRow(array);
+    }
+}
+}
+
+
+int [,] ih = Create2DArray(10, 17);
+Fill2DArray(ih, 0, 100);
+WriteLine("Первоначальный массив");
+WriteLine(Print2DArray(ih));
+
+WriteLine("Иизмененный массив");
+SortinRow(ih);
+WriteLine(Print2DArray(ih));
