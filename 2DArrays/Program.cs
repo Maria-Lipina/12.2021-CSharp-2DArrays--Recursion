@@ -235,3 +235,30 @@ WriteLine(Print2DArray(ih));
 WriteLine("Иизмененный массив");
 SortinRow(ih);
 WriteLine(Print2DArray(ih));
+
+WriteLine();
+WriteLine("58. Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить, что это невозможно (в случае, если матрица не квадратная).");
+
+int [,] Transpose (int [,] array)
+{
+    if (array.GetLength(0) != array.GetLength(1)) return new int [,] {{-1}, {-1}};
+    else 
+    {
+        int [,] result = new int [array.GetLength(0),array.GetLength(1)];
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                result[j,i] = array[i, j];
+            }
+        }
+    return result;
+    }
+}
+
+int [,] jk = Create2DArray(5, 8);
+Fill2DArray(jk, 0, 100);
+WriteLine(Print2DArray(jk));
+
+int [,] kj = Transpose(jk);
+WriteLine(Print2DArray(kj));
