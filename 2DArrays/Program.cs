@@ -99,6 +99,7 @@ WriteLine("Измененный массив");
 int [,] nl = EvenIndQuadrat(ln);
 WriteLine(Print2DArray(ln));
 
+
 WriteLine();
 WriteLine("53. В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет");
 int [,] ab = Create2DArray(6, 10); //keep it simple, stupid
@@ -262,3 +263,47 @@ WriteLine(Print2DArray(jk));
 
 int [,] kj = Transpose(jk);
 WriteLine(Print2DArray(kj));
+
+
+//I`m gonna need it in frequency analysis
+int [] DeckShuffle ()
+{
+    int [] result = new int [52];
+    for (int i = 0; i < 52; i++)
+    {
+        result [i] = new Random().Next(1, 14);
+    }
+return result;
+}
+
+int [] FindCount (int [] array, int [] values)
+{
+int [] count = new int [values.Length];
+for (int h = 0; h < values.Length; h++)
+{
+for (int i = 0; i < array.Length; i++)
+{
+    if (values[h] == array[i]) count[h]++;
+}
+}
+return count;
+}
+
+string PrintCounts (int [] count, int [] values)
+{
+    string outputString = String.Empty;
+    for (int i = 0; i < count.Length; i++)
+    {
+        outputString += $"{values[i]} встречается {count[i]} раз;\n";
+    }
+return outputString;
+}
+
+/*                 Туз   Два  Три  Четыре  Пять  Шесть  Семь  Восемь  Девять   Десять   Валет   Дама   Король*/
+int [] suitCards = {1,    2,   3,    4,      5,    6,     7,    8,      9,       10,     11,     12,     13};
+
+int [] deck = DeckShuffle ();
+Console.WriteLine(PrintMyArray(deck));
+
+int [] cardsCheck = FindCount(deck, suitCards);
+Console.WriteLine(PrintCounts(cardsCheck, suitCards));
